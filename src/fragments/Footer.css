@@ -1,0 +1,28 @@
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background-color: rgba(72, 191, 227, 0.9);
+    /* Adjust color if needed */
+    backdrop-filter: blur(10px) saturate(200%);
+    -webkit-backdrop-filter: blur(10px) saturate(200%);
+    /* Safari support */
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 0.875rem;
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+    margin-left: 8px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
