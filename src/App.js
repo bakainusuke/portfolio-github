@@ -11,7 +11,7 @@ import Footer from "./fragments/Footer";
 
 function App() {
   return (
-    <div className="d-flex flex-column min-vh-100 bg-light">
+    <div className="App">
       <Router>
         <Navbar />
           <main className="flex-grow p-4 bg-gray-100">

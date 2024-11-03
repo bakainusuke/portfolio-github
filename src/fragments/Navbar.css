@@ -1,66 +1,129 @@
 .navbar {
-    background-color: rgba(250, 250, 252, 0.8);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    backdrop-filter: saturate(180%) blur(20px);
-    transition: background 0.24s cubic-bezier(0.28, 0.11, 0.32, 1);
+    background-color: rgba(24, 24, 24, 0.8);
+    /* Initial background color */
     position: sticky;
     top: 0;
     width: 100%;
+    /* Full width */
+    max-width: 1200px;
+    /* Adjust this value to match your main content width */
+    margin: 0 auto;
+    /* Center the navbar */
     z-index: 1000;
-    padding: 12px 20px;
+    padding: 20px 25px;
+    /* Outer padding for navbar */
     display: flex;
     align-items: center;
     justify-content: space-between;
+    /* Space between logo and links */
     box-sizing: border-box;
+    /* Include padding and border in total width */
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+    /* Smooth transitions */
 }
 
-.navbar a {
-    color: #000;
-    /* Dark text */
-    opacity: 0.8;
+.navbar.scrolled {
+    background-color: transparent;
+    /* Change to transparent when scrolled */
+}
+
+.navbar-logo-container {
+    border: 2px solid transparent;
+    /* Initial transparent border */
+    padding: 12px 16px;
+    /* Increased padding for logo container */
+    border-radius: 100px;
+    /* Set rounded corners */
+    transition: border-color 0.5s ease;
+    /* Smooth transition for border color */
+}
+
+.navbar-logo-container a {
+    color: #ffffff;
+    /* Ensure logo text is always white */
     text-decoration: none;
-    font-size: 16px;
-    transition: opacity 0.2s ease, color 0.2s ease;
-    margin: 0 10px;
-}
-
-.navbar a:hover {
-    opacity: 1;
-    color: #0071e3;
-    /* Apple blue hover color */
-}
-
-.navbar-logo {
+    /* Remove underline from the link */
     font-weight: bold;
-    font-size: 1.25rem;
+    /* Optional: make logo text bold */
+    font-size: 25px;
+    /* Font size for logo */
+}
+
+.navbar-links-container {
+    border: 2px solid transparent;
+    /* Initial transparent border */
+    padding: 12px 0px;
+    /* Increased padding for links container */
+    border-radius: 100px;
+    /* Set rounded corners */
+    transition: border-color 0.5s ease;
+    /* Smooth transition for border color */
+}
+
+.navbar.scrolled .navbar-logo-container{
+    background-color: rgba(24, 24, 24, 0.8);
+    /* Change border color when scrolled */
+}
+
+.navbar.scrolled .navbar-links-container {
+    border-color: rgba(24, 24, 24, 0.8);
+    /* Change border color when scrolled */
 }
 
 .navbar-links {
     display: flex;
     gap: 10px;
+    /* Gap between links */
     list-style: none;
+    /* No bullets */
     margin: 0;
+    /* Reset margin */
     padding: 0;
+    /* Reset padding */
+}
+
+.navbar-links a {
+    color: #ffffff;
+    /* Text color */
+    opacity: 0.8;
+    /* Slight transparency */
+    text-decoration: none;
+    /* Remove underline */
+    font-size: 20px;
+    /* Font size for links */
+    transition: background-color 0.3s ease, opacity 0.2s ease;
+    /* Smooth background transition */
+    padding: 12px 12px;
+    /* Padding for link */
+    border-radius: 100px;
+    /* Rounded corners for links */
+}
+
+.navbar-links a:hover {
+    background-color: rgba(24, 24, 24, 0.212);
+    /* Darker background on hover */
+    opacity: 1;
+    /* Full opacity on hover */
+    color: #ffffff;
+    /* Optional: hover color for text */
 }
 
 /* Responsive font sizes */
 @media (max-width: 1023px) {
-    .navbar a {
-        font-size: 14px;
+    .navbar-links a {
+        font-size: 20px;
+        /* Font size for larger screens */
     }
 }
 
 @media (max-width: 768px) {
     .navbar {
         padding: 10px 16px;
+        /* Reduced padding for smaller screens */
     }
 
-    .navbar a {
+    .navbar-links a {
         font-size: 12px;
+        /* Font size for smaller screens */
     }
-}
-
-.navbar.scroll {
-    background-color: rgba(250, 250, 252, 0.9);
-
 }
