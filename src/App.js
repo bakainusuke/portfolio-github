@@ -1,4 +1,4 @@
-// import logo from './logo.svg';
+import logo from './logo.svg'; 
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -11,12 +11,12 @@ import Footer from "./fragments/Footer";
 
 function App() {
   return (
-    <div className="d-flex flex-column min-vh-100 bg-light">
+    <div className="App">
       <Router>
         <Navbar />
           <main className="flex-grow p-4 bg-gray-100">
           <header className="App-header">
-          {/* <img src={logo} className="App-logo" alt="logo" /> */}
+          <img src={logo} className="App-logo" alt="logo" />
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
