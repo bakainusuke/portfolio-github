@@ -139,7 +139,9 @@
     }
 
     .navbar-links a {
-        font-size: 12px;
+        font-size: 20px;
         /* Font size for smaller screens */
+        /* padding: 16px 12px; */
+        border-radius: 100px;
     }
 }
