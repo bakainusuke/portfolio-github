@@ -1,19 +1,20 @@
 // import logo from './logo.svg';
-// import './App.css';
+import './App.css';
 import {
   BrowserRouter as Router,
-  Navigate,
-  Route,
-  Routes,
+  // Navigate,
+  // Route,
+  // Routes,
 } from "react-router-dom";
 import Navbar from "./fragments/Navbar";
 import Footer from "./fragments/Footer";
 
 function App() {
   return (
-    <div className="App">
+    <div className="d-flex flex-column min-vh-100 bg-light">
       <Router>
         <Navbar />
+          <main className="flex-grow p-4 bg-gray-100">
           <header className="App-header">
           {/* <img src={logo} className="App-logo" alt="logo" /> */}
           <p>
@@ -28,6 +29,7 @@ function App() {
             Learn React
           </a>
         </header>
+        </main>
         <Footer />
       </Router>
     </div>

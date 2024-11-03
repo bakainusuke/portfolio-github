@@ -1,51 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./Navbar.css"; // Ensure this path is correct
 
 function Navbar(props) {
-    return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-info">
-        <div className="container">
-        <Link className="navbar-brand" to="/">
-            HUY DO
-        </Link>
-        <button
-            className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-        >
-            <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav mr-auto">
-            <li className="nav-item">
-                <Link className="nav-link" to="/">
-                Home
-                </Link>
-            </li>
-            {props.username !== null && (
-                <>
-                <li className="nav-item">
-                    <Link className="nav-link" to="/">
-                    Projects
-                    </Link>
-                </li>
-                <li className="nav-item">
-                    <Link className="nav-link" to="/">
-                    Mini Game
-                    </Link>
-                </li>
-                </>
-            )}
-            </ul>
-
-        </div>
-        </div>
+  return (
+    <nav className="navbar">
+      <Link className="navbar-logo" to="/">
+        HUY DO
+      </Link>
+      <ul className="navbar-links">
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/projects">Projects</Link></li>
+        <li><Link to="/mini-game">Mini Game</Link></li>
+      </ul>
     </nav>
-    );
+  );
 }
 
 export default Navbar;

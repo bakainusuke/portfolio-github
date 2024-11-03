@@ -1,9 +1,15 @@
 import React from "react";
+import "./Footer.css"; // Make sure the path is correct
 
 function Footer() {
   return (
-    <footer className="mt-auto py-3 bg-info text-white">
-      <div className="container">Loop Agile Now or LAN &copy; 2022</div>
+    <footer className="footer">
+      <p>
+        &copy; 2024 HUY DO | All rights reserved. 
+        <a href="https://github.com/your-profile" target="_blank" rel="noopener noreferrer">
+          GitHub
+        </a>
+      </p>
     </footer>
   );
 }
