@@ -9,9 +9,10 @@ function Navbar(props) {
         HUY DO
       </Link>
       <ul className="navbar-links">
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/projects">Projects</Link></li>
-        <li><Link to="/mini-game">Mini Game</Link></li>
+        <Link to="/">Home</Link>
+        <Link to="/projects">Projects</Link>
+        <Link to="/minigame">Minigame</Link>
+        <Link to="/contact">Contact</Link>
       </ul>
     </nav>
   );

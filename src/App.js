@@ -1,4 +1,4 @@
-// import logo from './logo.svg';
+import logo from './logo.svg'; 
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -16,7 +16,7 @@ function App() {
         <Navbar />
           <main className="flex-grow p-4 bg-gray-100">
           <header className="App-header">
-          {/* <img src={logo} className="App-logo" alt="logo" /> */}
+          <img src={logo} className="App-logo" alt="logo" />
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
