@@ -90,6 +90,14 @@
     /* Reset padding */
 }
 
+.navbar-links a.active {
+    background-color: rgba(24, 24, 24, 0.6);
+    /* Adjust as needed */
+    opacity: 1;
+    /* Full opacity for active */
+    color: #ffffff;
+}
+
 .navbar-links a {
     color: #ffffff;
     /* Text color */
