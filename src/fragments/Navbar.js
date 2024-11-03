@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css"; // Ensure this path is correct
 
-function Navbar(props) {
+function Navbar() {
     const [scrolled, setScrolled] = useState(false);
+    const location = useLocation(); // Get the current location
 
     const handleScroll = () => {
         const offset = window.scrollY;
@@ -17,6 +18,9 @@ function Navbar(props) {
         };
     }, []);
 
+    // Get the current pathname for active link detection
+    const currentPath = location.pathname;
+
     return (
         <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
             <div className="navbar-logo-container">
@@ -24,10 +28,18 @@ function Navbar(props) {
             </div>
             <div className="navbar-links-container">
                 <ul className="navbar-links">
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/projects">Projects</Link></li>
-                    <li><Link to="/minigame">Minigame</Link></li>
-                    <li><Link to="/contact">Contact</Link></li>
+                    <li>
+                        <Link to="/" className={currentPath === '/' ? 'active' : ''}>Home</Link>
+                    </li>
+                    <li>
+                        <Link to="/projects" className={currentPath === '/projects' ? 'active' : ''}>Projects</Link>
+                    </li>
+                    <li>
+                        <Link to="/minigame" className={currentPath === '/minigame' ? 'active' : ''}>Minigame</Link>
+                    </li>
+                    <li>
+                        <Link to="/contact" className={currentPath === '/contact' ? 'active' : ''}>Contact</Link>
+                    </li>
                 </ul>
             </div>
         </nav>

@@ -60,7 +60,7 @@
     /* Smooth transition for border color */
 }
 
-.navbar.scrolled .navbar-logo-container{
+.navbar.scrolled .navbar-logo-container {
     background-color: rgba(24, 24, 24, 0.8);
     /* Change border color when scrolled */
 }
@@ -68,6 +68,14 @@
 .navbar.scrolled .navbar-links-container {
     border-color: rgba(24, 24, 24, 0.8);
     /* Change border color when scrolled */
+}
+
+/* Change background when scrolled */
+.navbar.scrolled .navbar-links a.active {
+    background-color: rgba(24, 24, 24, 0.8);
+    /* Change to solid color when scrolled */
+    opacity: 1;
+    /* Ensure full opacity */
 }
 
 .navbar-links {
@@ -97,6 +105,8 @@
     /* Padding for link */
     border-radius: 100px;
     /* Rounded corners for links */
+    background-color: transparent;
+    /* Default to transparent */
 }
 
 .navbar-links a:hover {
@@ -106,6 +116,12 @@
     /* Full opacity on hover */
     color: #ffffff;
     /* Optional: hover color for text */
+}
+
+/* Active link styling */
+.navbar-links a.active {
+    background-color: transparent;
+    /* Keep it transparent when scrolled */
 }
 
 /* Responsive font sizes */
