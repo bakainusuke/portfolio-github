@@ -18,7 +18,7 @@ function App() {
     <div className="App">
       <Router basename="/portfolio-github">
         <Navbar />
-          <main className="App-header flex-grow p-4 bg-gray-100">
+          <main className="App-header ">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/projects" element={<Projects />} />
