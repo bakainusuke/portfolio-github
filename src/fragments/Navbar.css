@@ -1,5 +1,5 @@
 .navbar {
-    background-color: rgba(24, 24, 24, 0.8);
+    background-color: rgba(24, 24, 24, 0.6);
     /* Initial background color */
     position: sticky;
     top: 0;
@@ -61,18 +61,18 @@
 }
 
 .navbar.scrolled .navbar-logo-container {
-    background-color: rgba(24, 24, 24, 0.8);
+    background-color: rgba(24, 24, 24, 0.6);
     /* Change border color when scrolled */
 }
 
 .navbar.scrolled .navbar-links-container {
-    border-color: rgba(24, 24, 24, 0.8);
+    border-color: rgba(24, 24, 24, 0.6);
     /* Change border color when scrolled */
 }
 
 /* Change background when scrolled */
 .navbar.scrolled .navbar-links a.active {
-    background-color: rgba(24, 24, 24, 0.8);
+    background-color: rgba(24, 24, 24, 0.6);
     /* Change to solid color when scrolled */
     opacity: 1;
     /* Ensure full opacity */
