@@ -1,24 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import "./Navbar.css"; // Ensure this path is correct
+import "./Navbar.css";
 
 function Navbar() {
     const [scrolled, setScrolled] = useState(false);
-    const location = useLocation(); // Get the current location
+    const [menuOpen, setMenuOpen] = useState(false); // State for menu open/close
+    const location = useLocation();
 
     const handleScroll = () => {
         const offset = window.scrollY;
-        setScrolled(offset > 0); // Set scrolled state based on scroll position
+        setScrolled(offset > 0);
+    };
+
+    const toggleMenu = () => {
+        setMenuOpen((prev) => !prev); // Toggle menu open/close state
     };
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
         return () => {
-            window.removeEventListener("scroll", handleScroll); // Clean up the event listener
+            window.removeEventListener("scroll", handleScroll);
         };
     }, []);
 
-    // Get the current pathname for active link detection
     const currentPath = location.pathname;
 
     return (
@@ -26,7 +30,12 @@ function Navbar() {
             <div className="navbar-logo-container">
                 <Link to="/">HUY DO</Link>
             </div>
-            <div className="navbar-links-container">
+
+            <div className="menu-icon" onClick={toggleMenu}>
+                {menuOpen ? "✖" : "☰"}
+            </div>
+
+            <div className={`navbar-links-container ${menuOpen ? "open" : ""}`}>
                 <ul className="navbar-links">
                     <li>
                         <Link to="/" className={currentPath === '/' ? 'active' : ''}>Home</Link>

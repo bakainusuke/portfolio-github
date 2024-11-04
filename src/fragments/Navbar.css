@@ -22,13 +22,21 @@
     /* Smooth transitions */
 }
 
+/* Menu icon for small screens */
+.menu-icon {
+    display: none;
+    color: #ffffff;
+    font-size: 24px;
+    cursor: pointer;
+}
+
 .navbar.scrolled {
     background-color: transparent;
     /* Change to transparent when scrolled */
 }
 
 .navbar-logo-container {
-    border: 2px solid transparent;
+    border: 0px solid transparent;
     /* Initial transparent border */
     padding: 12px 16px;
     /* Increased padding for logo container */
@@ -139,17 +147,104 @@
         /* Font size for larger screens */
     }
 }
-
+/* Responsive dropdown styling */
 @media (max-width: 768px) {
     .navbar {
         padding: 10px 16px;
-        /* Reduced padding for smaller screens */
+    }
+
+    .navbar-links-container {
+        display: none;
+        /* Hide links on small screens */
+        position: absolute;
+        /* Set absolute positioning */
+        top: 100%;
+        right: 0;
+        /* Position below the navbar */
+        /* left: 62%; */
+        /* Align left */
+        /* width: 100%; */
+        /* Width for the dropdown menu */
+        background-color: rgba(24, 24, 24, 0.0);
+        /* Transparent background */
+        border-radius: 0px;
+        /* No rounded corners */
+        padding: 10px 0;
+        /* Vertical padding */
+        max-height: 0;
+        z-index: 999;
+        /* Ensure it sits above other elements */
+        /* overflow: hidden; */
+        /* Hide overflow */
+        /* transition: max-height 1s ease; */
+        /* Smooth transition for height */
+    }
+
+    .navbar-links-container.open {
+        display: block;
+        /* Show menu when open */
+        /* max-height: 500px; */
+    }
+
+    .navbar-links {
+        flex-direction: column;
+        /* Change direction to vertical */
+        gap: 20px;
+        /* Space between items */
+        width: 100%;
+        /* Ensure it takes full width */
     }
 
     .navbar-links a {
         font-size: 20px;
-        /* Font size for smaller screens */
-        /* padding: 16px 12px; */
+        /* Font size for menu items */
+        padding: 10px 20px;
+        /* Padding for items */
+        width: 100%;
+        /* Full width for each item */
+        text-align: right;
+        /* Align text to the right */
+        background-color: rgba(24, 24, 24, 0.0);
+        /* Maintain background transparency */
+        color: #ffffff;
+        /* Ensure text is white */
+        opacity: 0.8;
+        /* Slight transparency */
+        transition: background-color 0.3s ease, opacity 0.2s ease;
+        /* Smooth background transition */
         border-radius: 100px;
+        /* Rounded corners for links */
+    }
+
+    .navbar-links a:hover {
+        background-color: rgba(24, 24, 24, 0.212);
+        /* Darker background on hover */
+        opacity: 1;
+        /* Full opacity on hover */
+        color: #ffffff;
+        /* Hover color for text */
+    }
+
+    .navbar-links a.active {
+        background-color: rgba(24, 24, 24, 0.6);
+        /* Active link background */
+        opacity: 1;
+        /* Full opacity for active */
+    }
+
+    .navbar.scrolled .navbar-links-container {
+        border-color: rgba(24, 24, 24, 0.0);
+        /* No border when scrolled */
+    }
+
+    .menu-icon {
+        display: block;
+        /* Show menu icon on small screens */
+        background-color: rgba(24, 24, 24, 0.6);
+        /* Background for menu icon */
+        padding: 10px 20px;
+        /* Padding for the icon */
+        border-radius: 100px;
+        /* Rounded corners */
     }
 }
