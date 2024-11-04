@@ -16,7 +16,7 @@ import Contact from "./pages/Contact";
 function App() {
   return (
     <div className="App">
-      <Router>
+      <Router basename="/portfolio-github">
         <Navbar />
           <main className="App-header flex-grow p-4 bg-gray-100">
             <Routes>

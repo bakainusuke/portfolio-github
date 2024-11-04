@@ -8,7 +8,7 @@ function Home(props) {
           <div class="project-module module text project-module-text align- js-project-module e2e-site-project-module-text">
             <div class="rich-text js-text-editable module-text">
               <div class="title">
-                <strong>Huy Do</strong>
+                <strong>Huy Do Changed</strong>
               </div>
             </div>
           </div>
