@@ -1,4 +1,4 @@
-import logo from './logo.svg'; 
+// import logo from './logo.svg'; 
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -24,6 +24,7 @@ function App() {
               <Route path="/projects" element={<Projects />} />
               <Route path="/minigame" element={<Minigame />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </main>
         <Footer />
