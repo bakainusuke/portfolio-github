@@ -2,7 +2,12 @@
 <html>
 
 <head>
-    <meta http-equiv="refresh" content="0; URL=/portfolio-github/" />
+    <meta charset="UTF-8">
+    <script type="text/javascript">
+        // Redirect to the index.html with the full path after the base URL
+        const redirectTo = window.location.pathname.replace("/portfolio-github", "");
+        window.location.replace("/portfolio-github" + redirectTo);
+    </script>
 </head>
 
 <body>
