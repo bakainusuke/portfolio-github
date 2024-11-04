@@ -4,7 +4,7 @@ import "./Navbar.css";
 
 function Navbar() {
     const [scrolled, setScrolled] = useState(false);
-    const [menuOpen, setMenuOpen] = useState(false); // State for menu open/close
+    const [menuOpen, setMenuOpen] = useState(false);
     const location = useLocation();
 
     const handleScroll = () => {
@@ -13,7 +13,7 @@ function Navbar() {
     };
 
     const toggleMenu = () => {
-        setMenuOpen((prev) => !prev); // Toggle menu open/close state
+        setMenuOpen((prev) => !prev);
     };
 
     useEffect(() => {

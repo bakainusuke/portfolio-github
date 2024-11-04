@@ -66,6 +66,16 @@
     /* Set rounded corners */
     transition: border-color 0.5s ease;
     /* Smooth transition for border color */
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+.navbar-links-container.open {
+    max-height: 300px;
+    /* Adjust as needed for the number of items */
+    opacity: 1;
 }
 
 .navbar.scrolled .navbar-logo-container {
@@ -154,7 +164,7 @@
     }
 
     .navbar-links-container {
-        display: none;
+        display: block;
         /* Hide links on small screens */
         position: absolute;
         /* Set absolute positioning */
@@ -171,13 +181,7 @@
         /* No rounded corners */
         padding: 10px 0;
         /* Vertical padding */
-        max-height: 0;
-        z-index: 999;
-        /* Ensure it sits above other elements */
-        /* overflow: hidden; */
-        /* Hide overflow */
-        /* transition: max-height 1s ease; */
-        /* Smooth transition for height */
+
     }
 
     .navbar-links-container.open {
