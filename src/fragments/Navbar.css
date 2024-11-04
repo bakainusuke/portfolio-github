@@ -75,10 +75,10 @@
     /* Set rounded corners */
     transition: border-color 0.5s ease;
     /* Smooth transition for border color */
-    overflow: hidden;
+    /* overflow: hidden;
     max-height: 0;
     opacity: 0;
-    transition: max-height 0.5s ease, opacity 0.5s ease;
+    transition: max-height 0.5s ease, opacity 0.5s ease; */
 }
 
 .navbar-links-container.open {
@@ -190,6 +190,10 @@
         /* No rounded corners */
         padding: 10px 0;
         /* Vertical padding */
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        transition: max-height 0.5s ease, opacity 0.5s ease;
 
     }
 

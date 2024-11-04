@@ -1,36 +1,57 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import "./Home.css";
 
-function Home(props) {
+function Home() {
+  const introRef = useRef(null);
+  const projectRef = useRef(null);
+  const hobbiesRef = useRef(null);
+
+  // Function to add 'visible' class when elements are in viewport
+  const addVisibleClass = (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target); // Stop observing once visible
+      }
+    });
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(addVisibleClass, { threshold: 0.1 });
+    
+    // Observe each section
+    observer.observe(introRef.current);
+    observer.observe(projectRef.current);
+    observer.observe(hobbiesRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="container-fluid mt-auto text-white  ">
-      <div className="row min-vh-100">
-        <div className="col-md-6 outer-wrap text-center">
-          <div className="project-module module text project-module-text align- js-project-module e2e-site-project-module-text">
-            <div className="rich-text js-text-editable module-text">
-              <div className="title">
-                <strong>Huy Do Changed</strong>
-              </div>
-            </div>
-          </div>
-          <div className="project-module module text project-module-text align- js-project-module e2e-site-project-module-text">
-            <div className="rich-text js-text-editable module-text">
-              <div>RMIT Student, Bachelor of Computer Science</div>
-              <div>Artificial Intelligence</div>
-              <div>Machine Learning</div>
-              <div>React</div>
-              <div></div>
-            </div>
-          </div>
-          <div className="js-project-module project-module module social_icons project-module-social_icons align-">
-            <div className="module-content module-content-social_icons js-module-content">
-              <div className="social">
-                <ul></ul>
-              </div>
-            </div>
-          </div>
+    <div className="home-container">
+      {/* Intro Section */}
+      <div className="section intro-section" ref={introRef}>
+        <div className="title-large">HUY DO</div>
+        <div className="subtitle">Bachelor of Computer Science</div>
+        <div className="self-intro">This is a short self-introduction text. Replace this with your own content.</div>
+      </div>
+      
+
+      {/* Project Section */}
+      <div className="section project-section" ref={projectRef}>
+        <div className="title-large">Projects</div>
+        <div className="project-container">
+          {/* Replace with actual project content */}
+          <p>This is the project section. Add project details here.</p>
         </div>
-        <div className="col-md-6 ">
-          <img src="Portfolio/Syd.jpg" alt="This is" className="img-fluid"></img>
+      </div>
+
+      {/* Hobbies Section */}
+      <div className="section hobbies-section" ref={hobbiesRef}>
+        <div className="title-large">Hobbies</div>
+        <div className="hobbies-container">
+          {/* Replace with actual hobbies content */}
+          <p>This is the hobbies section. Add hobbies details here.</p>
         </div>
       </div>
     </div>
