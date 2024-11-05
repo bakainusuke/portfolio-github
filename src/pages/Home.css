@@ -57,6 +57,41 @@
     margin-right: 2%;
 }
 
+/* Project header styles */
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.project-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: rgba(24, 24, 24, 0.6);
+    /* Green background */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 2%;
+    /* Align with subtitle */
+    transition: background-color 0.3s;
+}
+
+.project-button:hover {
+    background-color: rgba(24, 24, 24, 0.3);
+    /* Darker green on hover */
+}
+
+/* Title large update for projects */
+.title-large {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-left: 5%;
+}
+
 /* Intro section content */
 .self-intro,
 .project-container,
