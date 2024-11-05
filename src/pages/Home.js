@@ -6,18 +6,19 @@ function Home() {
   const projectRef = useRef(null);
   const hobbiesRef = useRef(null);
 
-  // Function to add 'visible' class when elements are in viewport
-  const addVisibleClass = (entries, observer) => {
+  // Function to toggle 'visible' class based on element visibility
+  const toggleVisibleClass = (entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target); // Stop observing once visible
+        entry.target.classList.add("visible");  // Add when section is in view
+      } else {
+        entry.target.classList.remove("visible"); // Remove when section goes out of view
       }
     });
   };
 
   useEffect(() => {
-    const observer = new IntersectionObserver(addVisibleClass, { threshold: 0.1 });
+    const observer = new IntersectionObserver(toggleVisibleClass, { threshold: 0.1 });
     
     // Observe each section
     observer.observe(introRef.current);
