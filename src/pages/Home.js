@@ -30,30 +30,35 @@ function Home() {
   return (
     <div className="home-container">
       {/* Intro Section */}
-      <div className="section intro-section" ref={introRef}>
-        <div className="title-large">HUY DO</div>
-        <div className="subtitle">Bachelor of Computer Science</div>
-        <div className="self-intro">This is a short self-introduction text. Replace this with your own content.</div>
-      </div>
-      
+      <section className="section intro-section" ref={introRef}>
+        <div className="section-content-responsive">
+          <header className="welcome-header row">
+            <h1 className="title-large">Huy Do</h1>
+            <div className="subtitle">
+              <p>Bachelor of Computer Science</p>
+            </div>
+          </header>
+        </div>
+        <div className="self-intro">
+          <p>This is a short self-introduction text. Replace this with your own content.</p>
+        </div>
+      </section>
 
       {/* Project Section */}
-      <div className="section project-section" ref={projectRef}>
+      <section className="section project-section" ref={projectRef}>
         <div className="title-large">Projects</div>
         <div className="project-container">
-          {/* Replace with actual project content */}
           <p>This is the project section. Add project details here.</p>
         </div>
-      </div>
+      </section>
 
       {/* Hobbies Section */}
-      <div className="section hobbies-section" ref={hobbiesRef}>
+      <section className="section hobbies-section" ref={hobbiesRef}>
         <div className="title-large">Hobbies</div>
         <div className="hobbies-container">
-          {/* Replace with actual hobbies content */}
           <p>This is the hobbies section. Add hobbies details here.</p>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

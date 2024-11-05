@@ -67,6 +67,7 @@
 }
 
 .navbar-links-container {
+    background-color: rgba(24, 24, 24, 0.25);
     border: 2px solid transparent;
     /* Initial transparent border */
     padding: 12px 0px;
@@ -115,6 +116,7 @@
     /* Reset margin */
     padding: 0;
     /* Reset padding */
+    
 }
 
 .navbar-links a.active {
