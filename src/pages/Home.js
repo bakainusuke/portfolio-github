@@ -1,38 +1,74 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
+import "./Home.css";
 
-function Home(props) {
+function Home() {
+  const introRef = useRef(null);
+  const projectRef = useRef(null);
+  const hobbiesRef = useRef(null);
+  const navigate = useNavigate(); // Initialize navigate function
+
+  const toggleVisibleClass = (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      } else {
+        entry.target.classList.remove("visible");
+      }
+    });
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(toggleVisibleClass, { threshold: 0.1 });
+    observer.observe(introRef.current);
+    observer.observe(projectRef.current);
+    observer.observe(hobbiesRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Function to handle button click and navigate to /projects
+  const handleProjectButtonClick = () => {
+    navigate("/projects");
+  };
+
   return (
-    <div className="container-fluid mt-auto text-white  ">
-      <div className="row min-vh-100">
-        <div className="col-md-6 outer-wrap text-center">
-          <div className="project-module module text project-module-text align- js-project-module e2e-site-project-module-text">
-            <div className="rich-text js-text-editable module-text">
-              <div className="title">
-                <strong>Huy Do Changed</strong>
-              </div>
+    <div className="home-container">
+      {/* Intro Section */}
+      <section className="section intro-section" ref={introRef}>
+        <div className="section-content-responsive">
+          <header className="welcome-header row">
+            <h1 className="title-large">Huy Do</h1>
+            <div className="subtitle">
+              <p>Bachelor of Computer Science</p>
             </div>
-          </div>
-          <div className="project-module module text project-module-text align- js-project-module e2e-site-project-module-text">
-            <div className="rich-text js-text-editable module-text">
-              <div>RMIT Student, Bachelor of Computer Science</div>
-              <div>Artificial Intelligence</div>
-              <div>Machine Learning</div>
-              <div>React</div>
-              <div></div>
-            </div>
-          </div>
-          <div className="js-project-module project-module module social_icons project-module-social_icons align-">
-            <div className="module-content module-content-social_icons js-module-content">
-              <div className="social">
-                <ul></ul>
-              </div>
-            </div>
-          </div>
+          </header>
         </div>
-        <div className="col-md-6 ">
-          <img src="Portfolio/Syd.jpg" alt="This is" className="img-fluid"></img>
+        <div className="self-intro">
+          <p>This is a short self-introduction text. Replace this with your own content.</p>
         </div>
-      </div>
+      </section>
+
+      {/* Project Section */}
+      <section className="section project-section" ref={projectRef}>
+        <header className="project-header row">
+          <h2 className="title-large">Projects</h2>
+          <button className="project-button" onClick={handleProjectButtonClick}>
+            Go to Projects
+          </button>
+        </header>
+        <div className="project-container">
+          <p>This is the project section. Add project details here.</p>
+        </div>
+      </section>
+
+      {/* Hobbies Section */}
+      <section className="section hobbies-section" ref={hobbiesRef}>
+        <div className="title-large">Hobbies</div>
+        <div className="hobbies-container">
+          <p>This is the hobbies section. Add hobbies details here.</p>
+        </div>
+      </section>
     </div>
   );
 }

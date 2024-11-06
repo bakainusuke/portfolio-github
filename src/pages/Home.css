@@ -1,0 +1,126 @@
+/* Base styles */
+.home-container {
+    padding: 0 20px;
+    color: rgb(29, 29, 31);
+    font-family: Arial, sans-serif;
+    max-width: 1920px;
+    /* Sets the max width to 1920px */
+    width: 100%;
+    /* Allows it to scale down on smaller screens */
+    margin: 0 auto;
+    /* Centers the content on wider screens */
+    box-sizing: border-box;
+}
+
+/* Section styles */
+.section {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 45vh;
+    padding: 40px 0;
+    opacity: 0;
+    /* Start hidden */
+    transform: translateY(50px);
+    /* Slide effect */
+    transition: opacity 1.5s ease, transform 1.5s ease;
+    /* Smooth transition */
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Header styles */
+.welcome-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    
+}
+
+.title-large {
+    font-size: 3rem;
+    font-weight: bold;
+    align-items: left;
+    text-align: left;
+    margin-bottom: 20px;
+    margin-left: 5%;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    text-align: right;
+    margin-right: 2%;
+}
+
+/* Project header styles */
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.project-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: rgba(24, 24, 24, 0.6);
+    /* Green background */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 2%;
+    /* Align with subtitle */
+    transition: background-color 0.3s;
+}
+
+.project-button:hover {
+    background-color: rgba(24, 24, 24, 0.3);
+    /* Darker green on hover */
+}
+
+/* Title large update for projects */
+.title-large {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-left: 5%;
+}
+
+/* Intro section content */
+.self-intro,
+.project-container,
+.hobbies-container {
+    border-radius: 12px;
+    padding: 20px;
+    background-color: rgba(171, 171, 171, 0.5);
+    
+    min-height: 45vh;
+    align-items: center;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .section {
+        text-align: center;
+    }
+
+    .welcome-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .title-large {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+
+    .subtitle {
+        text-align: center;
+    }
+}
