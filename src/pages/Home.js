@@ -39,6 +39,10 @@ function Home() {
     );
   };
 
+    const handleProjectButtonClick = () => {
+    navigate("/projects");
+  };
+
   return (
     <div className="home-container">
       {/* Intro Section */}
@@ -60,6 +64,9 @@ function Home() {
       <section className="section project-section" ref={projectRef}>
         <header className="project-header row">
           <h2 className="title-large">Projects</h2>
+          <button className="project-button" onClick={handleProjectButtonClick}>
+            Go to Projects
+          </button>
         </header>
         <div
           className="project-card"

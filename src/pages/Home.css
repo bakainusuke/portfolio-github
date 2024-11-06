@@ -67,15 +67,15 @@
 }
 
 .project-button {
-    padding: 10px 20px;
-    font-size: 1rem;
+    padding: 10px 10px;
+    font-size: 1.25rem;
     background-color: rgba(24, 24, 24, 0.6);
     /* Green background */
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-right: 2%;
+    margin-right: 8%;
     /* Align with subtitle */
     transition: background-color 0.3s;
 }
