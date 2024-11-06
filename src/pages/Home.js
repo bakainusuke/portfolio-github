@@ -1,12 +1,14 @@
-import React, { useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import React, { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Home.css";
+import projectData from "../data/projectData.json"; // Import JSON data
 
 function Home() {
   const introRef = useRef(null);
   const projectRef = useRef(null);
   const hobbiesRef = useRef(null);
-  const navigate = useNavigate(); // Initialize navigate function
+  const navigate = useNavigate();
+  const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
 
   const toggleVisibleClass = (entries) => {
     entries.forEach((entry) => {
@@ -27,9 +29,17 @@ function Home() {
     return () => observer.disconnect();
   }, []);
 
-  // Function to handle button click and navigate to /projects
-  const handleProjectButtonClick = () => {
-    navigate("/projects");
+  // Handle next and previous project navigation
+  const handleNextProject = () => {
+    setCurrentProjectIndex((prevIndex) =>
+      prevIndex === projectData.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const handlePrevProject = () => {
+    setCurrentProjectIndex((prevIndex) =>
+      prevIndex === 0 ? projectData.length - 1 : prevIndex - 1
+    );
   };
 
   return (
@@ -53,12 +63,22 @@ function Home() {
       <section className="section project-section" ref={projectRef}>
         <header className="project-header row">
           <h2 className="title-large">Projects</h2>
-          <button className="project-button" onClick={handleProjectButtonClick}>
+          <button className="project-button" onClick={() => navigate("/projects")}>
             Go to Projects
           </button>
         </header>
-        <div className="project-container">
-          <p>This is the project section. Add project details here.</p>
+        
+        {/* Project Carousel */}
+        <div className="carousel">
+          <button className="carousel-button left" onClick={handlePrevProject}>{"<"}</button>
+          <div className="project-card">
+            <h3 className="project-title">{projectData[currentProjectIndex].title}</h3>
+            <p className="project-brief">{projectData[currentProjectIndex].brief}</p>
+            <div className="project-image">
+              <div className="placeholder-image">Image Placeholder</div>
+            </div>
+          </div>
+          <button className="carousel-button right" onClick={handleNextProject}>{">"}</button>
         </div>
       </section>
 
