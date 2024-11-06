@@ -168,9 +168,11 @@
 /* Project navigation buttons */
 .project-controls {
     display: flex;
-    /* justify-content: right; */
     gap: 10px;
-    margin-left: 80%;
+    position: absolute;
+    bottom: 10px;
+    right: 10%;
+    z-index: 2;
 }
 
 .project-nav-button {
@@ -246,5 +248,6 @@
     
     .project-card {
         width: 80%;
+        height: 600px;
     }
 }

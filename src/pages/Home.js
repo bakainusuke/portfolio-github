@@ -68,6 +68,7 @@ function Home() {
             Go to Projects
           </button>
         </header>
+        <div>
         <div
           className="project-card"
           style={{
@@ -78,11 +79,14 @@ function Home() {
             <h3 className="project-title">{projectData[currentProjectIndex].title}</h3>
             <p className="project-brief">{projectData[currentProjectIndex].brief}</p>
           </div>
+          
         </div>
         <div className="project-controls">
           <button onClick={handlePrevProject} className="project-nav-button">←</button>
           <button onClick={handleNextProject} className="project-nav-button">→</button>
         </div>
+        </div>
+        
       </section>
 
       {/* Hobbies Section */}
