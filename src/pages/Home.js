@@ -1,12 +1,14 @@
-import React, { useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import React, { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Home.css";
+import projectData from "../data/projectData.json"; // Import project data from JSON
 
 function Home() {
   const introRef = useRef(null);
   const projectRef = useRef(null);
   const hobbiesRef = useRef(null);
-  const navigate = useNavigate(); // Initialize navigate function
+  const navigate = useNavigate();
+  const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
 
   const toggleVisibleClass = (entries) => {
     entries.forEach((entry) => {
@@ -27,8 +29,17 @@ function Home() {
     return () => observer.disconnect();
   }, []);
 
-  // Function to handle button click and navigate to /projects
-  const handleProjectButtonClick = () => {
+  const handleNextProject = () => {
+    setCurrentProjectIndex((prevIndex) => (prevIndex + 1) % projectData.length);
+  };
+
+  const handlePrevProject = () => {
+    setCurrentProjectIndex((prevIndex) =>
+      prevIndex === 0 ? projectData.length - 1 : prevIndex - 1
+    );
+  };
+
+    const handleProjectButtonClick = () => {
     navigate("/projects");
   };
 
@@ -57,8 +68,20 @@ function Home() {
             Go to Projects
           </button>
         </header>
-        <div className="project-container">
-          <p>This is the project section. Add project details here.</p>
+        <div
+          className="project-card"
+          style={{
+            backgroundImage: `url(${process.env.PUBLIC_URL}/data/${projectData[currentProjectIndex].image})`
+          }}
+        >
+          <div className="project-content">
+            <h3 className="project-title">{projectData[currentProjectIndex].title}</h3>
+            <p className="project-brief">{projectData[currentProjectIndex].brief}</p>
+          </div>
+        </div>
+        <div className="project-controls">
+          <button onClick={handlePrevProject} className="project-nav-button">←</button>
+          <button onClick={handleNextProject} className="project-nav-button">→</button>
         </div>
       </section>
 

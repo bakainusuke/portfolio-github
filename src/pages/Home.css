@@ -67,15 +67,15 @@
 }
 
 .project-button {
-    padding: 10px 20px;
-    font-size: 1rem;
+    padding: 10px 10px;
+    font-size: 1.25rem;
     background-color: rgba(24, 24, 24, 0.6);
     /* Green background */
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-right: 2%;
+    margin-right: 8%;
     /* Align with subtitle */
     transition: background-color 0.3s;
 }
@@ -104,6 +104,126 @@
     align-items: center;
 }
 
+/* Carousel container */
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Project card styling */
+/* Project section */
+.project-section {
+    text-align: center;
+    padding-top: 40px;
+}
+
+/* Project card styling */
+.project-card {
+    width: 80%;
+    min-width: 300px;
+    max-width: 1920px;
+    height: 800px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    display: flex;
+    align-items: flex-end;
+    justify-content: start;
+    transition: transform 0.3s ease;
+    margin: 0 auto 20px;
+    text-align: left;
+    position: relative;
+    flex-direction: column;
+}
+
+
+/* Project content overlay for text readability */
+.project-content {
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    /* Dark overlay */
+    padding: 0px;
+    border-radius: 8px;
+    width: 100%;
+    /* margin-left: 80%; */
+}
+
+.project-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.project-brief {
+    font-size: 1rem;
+    color: #ddd;
+}
+
+/* Project navigation buttons */
+.project-controls {
+    display: flex;
+    /* justify-content: right; */
+    gap: 10px;
+    margin-left: 80%;
+}
+
+.project-nav-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: rgba(24, 24, 24, 0.6);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.project-nav-button:hover {
+    background-color: rgba(24, 24, 24, 0.3);
+}
+
+.project-image {
+    height: 200px;
+    background-color: #eee;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.placeholder-image {
+    background-image: repeating-linear-gradient(45deg,
+            #ccc,
+            #ccc 10px,
+            #ddd 10px,
+            #ddd 20px);
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Carousel button styling */
+.carousel-button {
+    font-size: 2rem;
+    color: #333;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    transition: color 0.3s;
+}
+
+.carousel-button:hover {
+    color: #666;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
     .section {
@@ -122,5 +242,9 @@
 
     .subtitle {
         text-align: center;
+    }
+    
+    .project-card {
+        width: 80%;
     }
 }
