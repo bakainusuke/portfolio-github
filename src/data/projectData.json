@@ -3,18 +3,18 @@
         "title": "Project 1",
         "brief": "Brief description of Project 1.",
         "description": "Detailed description of Project 1.",
-        "image": "placeholder.ipg"
+        "image": "p1.jpg"
     },
     {
         "title": "Project 2",
         "brief": "Brief description of Project 2.",
         "description": "Detailed description of Project 2.",
-        "image": "placeholder.ipg"
+        "image": "p2.jpg"
     },
     {
         "title": "Project 3",
         "brief": "Brief description of Project 3.",
         "description": "Detailed description of Project 3.",
-        "image": "placeholder.ipg"
+        "image": "p3.jpg"
     }
 ]

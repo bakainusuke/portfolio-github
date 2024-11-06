@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
-import projectData from "../data/projectData.json"; // Import JSON data
+import projectData from "../data/projectData.json"; // Import project data from JSON
 
 function Home() {
   const introRef = useRef(null);
@@ -29,11 +29,8 @@ function Home() {
     return () => observer.disconnect();
   }, []);
 
-  // Handle next and previous project navigation
   const handleNextProject = () => {
-    setCurrentProjectIndex((prevIndex) =>
-      prevIndex === projectData.length - 1 ? 0 : prevIndex + 1
-    );
+    setCurrentProjectIndex((prevIndex) => (prevIndex + 1) % projectData.length);
   };
 
   const handlePrevProject = () => {
@@ -63,22 +60,21 @@ function Home() {
       <section className="section project-section" ref={projectRef}>
         <header className="project-header row">
           <h2 className="title-large">Projects</h2>
-          <button className="project-button" onClick={() => navigate("/projects")}>
-            Go to Projects
-          </button>
         </header>
-        
-        {/* Project Carousel */}
-        <div className="carousel">
-          <button className="carousel-button left" onClick={handlePrevProject}>{"<"}</button>
-          <div className="project-card">
+        <div
+          className="project-card"
+          style={{
+            backgroundImage: `url(${process.env.PUBLIC_URL}/data/${projectData[currentProjectIndex].image})`
+          }}
+        >
+          <div className="project-content">
             <h3 className="project-title">{projectData[currentProjectIndex].title}</h3>
             <p className="project-brief">{projectData[currentProjectIndex].brief}</p>
-            <div className="project-image">
-              <div className="placeholder-image">Image Placeholder</div>
-            </div>
           </div>
-          <button className="carousel-button right" onClick={handleNextProject}>{">"}</button>
+        </div>
+        <div className="project-controls">
+          <button onClick={handlePrevProject} className="project-nav-button">←</button>
+          <button onClick={handleNextProject} className="project-nav-button">→</button>
         </div>
       </section>
 
