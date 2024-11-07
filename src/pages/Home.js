@@ -75,7 +75,7 @@ function Home() {
             backgroundImage: `url(${process.env.PUBLIC_URL}/data/${projectData[currentProjectIndex].image})`
           }}
         >
-          <div className="project-content">
+          <div className="project-content"  key={currentProjectIndex}>
             <h3 className="project-title">{projectData[currentProjectIndex].title}</h3>
             <p className="project-brief">{projectData[currentProjectIndex].brief}</p>
           </div>

@@ -94,7 +94,6 @@
 
 /* Intro section content */
 .self-intro,
-.project-container,
 .hobbies-container {
     border-radius: 12px;
     padding: 20px;
@@ -149,20 +148,25 @@
     /* background-color: rgba(0, 0, 0, 0.5); */
     /* Dark overlay */
     padding: 0px;
+        /* Add padding all around */
     border-radius: 8px;
     width: 100%;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     /* margin-left: 80%; */
 }
 
 .project-title {
     font-size: 2.5rem;
     font-weight: bold;
+    margin-left: 20px;
     margin-bottom: 20px;
 }
 
 .project-brief {
     font-size: 1rem;
     color: #ddd;
+    margin-left: 20px;
 }
 
 /* Project navigation buttons */
