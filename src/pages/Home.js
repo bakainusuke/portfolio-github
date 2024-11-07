@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/iframe-has-title */
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
@@ -75,7 +76,7 @@ function Home() {
             backgroundImage: `url(${process.env.PUBLIC_URL}/data/${projectData[currentProjectIndex].image})`
           }}
         >
-          <div className="project-content">
+          <div className="project-content"  key={currentProjectIndex}>
             <h3 className="project-title">{projectData[currentProjectIndex].title}</h3>
             <p className="project-brief">{projectData[currentProjectIndex].brief}</p>
           </div>
@@ -93,8 +94,22 @@ function Home() {
       <section className="section hobbies-section" ref={hobbiesRef}>
         <div className="title-large">Hobbies</div>
         <div className="hobbies-container">
-          <p>This is the hobbies section. Add hobbies details here.</p>
+          <div className="hobbies-music">
+            <h3 className="title-music">Music</h3>
+            <p className="music-brief">Laufey is one of my favorite artists. Her music brings a deep, elegent vibe to my life.</p>
+
+            <iframe
+            className="spotify-iframe"
+            src="https://open.spotify.com/embed/album/1hmlhl74JfLyUqmqtCwvFb?utm_source=generator"
+            frameBorder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+            ></iframe>
+
+          </div>
+        
         </div>
+        
       </section>
     </div>
   );
