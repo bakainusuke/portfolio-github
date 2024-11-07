@@ -1,40 +1,53 @@
-import React from "react";
+import React, { useEffect } from 'react';
+import './Projects.css';
+import projectData from '../data/projectData.json'; // Import project data from JSON
 
-function Projects(props) {
-  return (
-    <div className="container-fluid mt-auto text-white  ">
-      <div className="row min-vh-100">
-        <div className="col-md-6 outer-wrap text-center">
-          <div className="project-module module text project-module-text align- js-project-module e2e-site-project-module-text">
-            <div className="rich-text js-text-editable module-text">
-              <div className="title">
-                <strong>Projects</strong>
-              </div>
-            </div>
-          </div>
-          <div className="project-module module text project-module-text align- js-project-module e2e-site-project-module-text">
-            <div className="rich-text js-text-editable module-text">
-              <div>RMIT Student, Bachelor of Computer Science</div>
-              <div>Artificial Intelligence</div>
-              <div>Machine Learning</div>
-              <div>React</div>
-              <div></div>
-            </div>
-          </div>
-          <div className="js-project-module project-module module social_icons project-module-social_icons align-">
-            <div className="module-content module-content-social_icons js-module-content">
-              <div className="social">
-                <ul></ul>
-              </div>
-            </div>
-          </div>
+function Projects() {
+    useEffect(() => {
+        const handleScroll = () => {
+            const sections = document.querySelectorAll('.project-page-section');
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+                    section.classList.add('project-page-section-visible');
+                }
+            });
+        };
+
+        // Initial call to handle visibility on page load
+        handleScroll();
+
+        // Add event listener for scroll
+        window.addEventListener('scroll', handleScroll);
+
+        // Cleanup on component unmount
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+    return (
+        <div className="projects-page-container">
+            {projectData.map((project, index) => (
+                <div key={index} className="project-page-section">
+                    <div className="project-page-card">
+                        <img
+                            src={`${process.env.PUBLIC_URL}/data/${project.image}`}  // Images are in the public/data folder
+                            alt={project.title}
+                            className="project-page-image"
+                        />
+                        <div className="project-page-info">
+                            <div className="project-page-title">{project.title}</div>
+                            <div className="project-page-brief">{project.brief}</div>
+                        </div>
+                        <div className="project-page-description">
+                            {project.description}
+                        </div>
+                    </div>
+                </div>
+            ))}
         </div>
-        <div className="col-md-6 ">
-          <img src="Portfolio/Syd.jpg" alt="This is" className="img-fluid"></img>
-        </div>
-      </div>
-    </div>
-  );
+    );
 }
 
 export default Projects;
