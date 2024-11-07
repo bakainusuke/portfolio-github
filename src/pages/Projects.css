@@ -50,8 +50,8 @@
 
 .project-page-image {
     width: 70%;
-    /* height: 500px; */
-    /* object-fit: cover; */
+    max-height: 900px; 
+    object-fit: cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -82,4 +82,11 @@
     font-size: 16px;
     color: #333;
     text-align: justify;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .project-page-image {
+            max-height: 550px;
+        }
 }

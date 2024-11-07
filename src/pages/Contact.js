@@ -8,16 +8,14 @@ function Contact(props) {
           <div className="project-module module text project-module-text align- js-project-module e2e-site-project-module-text">
             <div className="rich-text js-text-editable module-text">
               <div className="title">
-                <strong>contact</strong>
+                <strong>HUY DO</strong>
               </div>
             </div>
           </div>
           <div className="project-module module text project-module-text align- js-project-module e2e-site-project-module-text">
             <div className="rich-text js-text-editable module-text">
-              <div>RMIT Student, Bachelor of Computer Science</div>
-              <div>Artificial Intelligence</div>
-              <div>Machine Learning</div>
-              <div>React</div>
+              <div>Phone number: 0466998566</div>
+              <div>Email: huydo.henry.work@gmail.com</div>
               <div></div>
             </div>
           </div>
@@ -28,9 +26,6 @@ function Contact(props) {
               </div>
             </div>
           </div>
-        </div>
-        <div className="col-md-6 ">
-          <img src="Portfolio/Syd.jpg" alt="This is" className="img-fluid"></img>
         </div>
       </div>
     </div>

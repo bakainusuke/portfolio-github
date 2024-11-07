@@ -7,7 +7,7 @@
     min-height: 100vh;
     width: 100%;
     margin: 0 auto;
-    background: linear-gradient(-45deg, #0B4A3B, #FFD15C);
+    /* background: linear-gradient(-45deg, #0B4A3B, #FFD15C); */
     box-sizing: border-box;
 }
 
@@ -250,6 +250,6 @@
     
     .project-card {
         width: 80%;
-        height: 600px;
+        height: 550px;
     }
 }
