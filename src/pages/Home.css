@@ -88,6 +88,44 @@
     margin-left: 5%;
 }
 
+.intro-text {
+    font-size: 1.75rem;
+    text-align: left;
+    margin-left: 5%;
+}
+
+.self-intro .progress-bars {
+    margin-top: 20px;
+}
+
+.progress-bar {
+    background-color: #444;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 20px;
+    margin: 10px 0;
+    position: relative;
+    width: 50%;
+    margin-left: 10%;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background-color: #32b294;
+    /* Adjust color if needed */
+    transition: width 0.5s ease;
+}
+
+.progress-label {
+    color: #000000;
+    font-size: 1.2rem;
+    /* padding-left: 5px; */
+    margin-left: 00%;
+    position: absolute;
+    /* top: -25px; */
+    left: 12px;
+}
+
 /* Intro section content */
 .self-intro,
 .hobbies-container {

@@ -57,7 +57,42 @@ function Home() {
           </header>
         </div>
         <div className="self-intro">
-          <p>This is a short self-introduction text. Replace this with your own content.</p>
+          <p className="intro-text">
+            Hi there, I'm Huy or Henry, a fresh graduate Computer Science student from RMIT. I've experienced various projects ranging from 
+            developing and deploying Website ReactJS, NodeJS, Springboot to Desktop application using PyQT. One of the field I'm highly
+            interested at is AI, Machine Learning and Large Language Models.
+          </p>
+          <p className="intro-text">
+            My Programming Skills:
+          </p>
+
+          {/* Programming Language Progress Bars */}
+          <div className="progress-bars">
+            <div className="progress-bar">
+              <span className="progress-label">C++ - 80%</span>
+              <div className="progress-bar-fill" style={{ width: "80%" }}></div>
+            </div>
+            <div className="progress-bar">
+              <span className="progress-label">Java - 90%</span>
+              <div className="progress-bar-fill" style={{ width: "70%" }}></div>
+            </div>
+            <div className="progress-bar">
+              <span className="progress-label">Python - 90%</span>
+              <div className="progress-bar-fill" style={{ width: "90%" }}></div>
+            </div>
+            <div className="progress-bar">
+              <span className="progress-label">ROS2 - 70%</span>
+              <div className="progress-bar-fill" style={{ width: "85%" }}></div>
+            </div>
+            <div className="progress-bar">
+              <span className="progress-label">SQL - 90%</span>
+              <div className="progress-bar-fill" style={{ width: "75%" }}></div>
+            </div>
+            <div className="progress-bar">
+              <span className="progress-label">JavaScript - 80%</span>
+              <div className="progress-bar-fill" style={{ width: "80%" }}></div>
+            </div>
+          </div>
         </div>
       </section>
 
