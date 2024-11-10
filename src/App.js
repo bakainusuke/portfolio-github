@@ -29,8 +29,8 @@ function AppContent() {
   const headerStyle =
     location.pathname === "/projects"
       ? { background: "linear-gradient(-45deg, #51A7BF, #DAF4FF)" }
-      : location.pathname === "/minigame"
-      ? { background: "linear-gradient(-45deg, #FF8C00, #FFE4B5)" } 
+      // : location.pathname === "/minigame"
+      // ? { background: "linear-gradient(-45deg, #FF8C00, #FFE4B5)" } 
       : location.pathname === "/contact"
       ? { background: "linear-gradient(-45deg, #FF6347, #FFD700)" } 
       : { background: "linear-gradient(-45deg, #0B4A3B, #FFD15C)" }; 

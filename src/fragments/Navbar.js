@@ -43,9 +43,9 @@ function Navbar() {
                     <li>
                         <Link to="/projects" className={currentPath === '/projects' ? 'active' : ''}>Projects</Link>
                     </li>
-                    <li>
+                    {/* <li>
                         <Link to="/minigame" className={currentPath === '/minigame' ? 'active' : ''}>Minigame</Link>
-                    </li>
+                    </li> */}
                     <li>
                         <Link to="/contact" className={currentPath === '/contact' ? 'active' : ''}>Contact</Link>
                     </li>
