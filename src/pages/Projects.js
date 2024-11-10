@@ -1,35 +1,37 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './Projects.css';
 import projectData from '../data/projectData.json'; // Import project data from JSON
 
 function Projects() {
-    // useEffect(() => {
-    //     const handleScroll = () => {
-    //         const sections = document.querySelectorAll('.project-page-section');
-    //         sections.forEach(section => {
-    //             const rect = section.getBoundingClientRect();
-    //             if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-    //                 section.classList.add('project-page-section-visible');
-    //             }
-    //         });
-    //     };
+    const sectionsRef = useRef([]);
 
+    useEffect(() => {
+        const handleIntersect = (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('project-page-section-visible');
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(handleIntersect, { threshold: 0.1 });
         
-    //     handleScroll();
+        sectionsRef.current.forEach((section) => {
+            if (section) observer.observe(section);
+        });
 
-        
-    //     window.addEventListener('scroll', handleScroll);
-
-    //     // Cleanup on component unmount
-    //     return () => {
-    //         window.removeEventListener('scroll', handleScroll);
-    //     };
-    // }, []);
+        // Cleanup on component unmount
+        return () => observer.disconnect();
+    }, []);
 
     return (
         <div className="projects-page-container">
             {projectData.map((project, index) => (
-                <div key={index} className="project-page-section">
+                <div
+                    key={index}
+                    className="project-page-section"
+                    ref={(el) => (sectionsRef.current[index] = el)}
+                >
                     <div className="project-page-card">
                         <img
                             src={`${process.env.PUBLIC_URL}/data/${project.image}`}  // Images are in the public/data folder
