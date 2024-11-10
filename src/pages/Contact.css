@@ -1,0 +1,64 @@
+/* Container for social links */
+.social ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social ul li {
+    display: inline-block;
+}
+
+.social ul li a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    background-color: #333;
+    position: relative;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for icons */
+.social ul li a:hover {
+    background-color: #007bff;
+    transform: scale(1.1);
+}
+
+/* Facebook Icon */
+.social ul li a.facebook::before {
+    content: "f";
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+/* Instagram Icon */
+.social ul li a.instagram::before {
+    content: "I";
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+/* LinkedIn Icon */
+.social ul li a.linkedin::before {
+    content: "in";
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+.contact-link {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-link:hover {
+    color: #ddd;
+}
