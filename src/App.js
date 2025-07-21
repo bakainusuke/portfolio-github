@@ -4,13 +4,13 @@ import {
   Navigate,
   Route,
   Routes,
-  useLocation
+  
 } from "react-router-dom";
 import Navbar from "./fragments/Navbar";
 import Footer from "./fragments/Footer";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
-import Minigame from "./pages/Minigame";
+import Albums from "./pages/Albums";
 import Contact from "./pages/Contact";
 
 function App() {
@@ -24,25 +24,17 @@ function App() {
 }
 
 function AppContent() {
-  const location = useLocation(); 
+  // const location = useLocation(); 
 
-  const headerStyle =
-    location.pathname === "/projects"
-      ? { background: "linear-gradient(-45deg, #51A7BF, #DAF4FF)" }
-      // : location.pathname === "/minigame"
-      // ? { background: "linear-gradient(-45deg, #FF8C00, #FFE4B5)" } 
-      : location.pathname === "/contact"
-      ? { background: "linear-gradient(-45deg, #FF6347, #FFD700)" } 
-      : { background: "linear-gradient(-45deg, #0B4A3B, #FFD15C)" }; 
 
   return (
     <div>
       <Navbar />
-      <main className="App-header" style={headerStyle}>
+      <main className="App-header" >
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
-          <Route path="/minigame" element={<Minigame />} />
+          <Route path="/albums" element={<Albums />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>

@@ -1,6 +1,6 @@
 import React from "react";
 
-function Minigame(props) {
+function Albums(props) {
   return (
     <div className="container-fluid mt-auto text-white  ">
       <div className="row min-vh-100">
@@ -37,4 +37,4 @@ function Minigame(props) {
   );
 }
 
-export default Minigame;
+export default Albums;

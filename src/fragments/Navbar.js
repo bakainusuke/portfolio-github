@@ -1,58 +1,115 @@
-import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import "./Navbar.css";
-
-function Navbar() {
-    const [scrolled, setScrolled] = useState(false);
-    const [menuOpen, setMenuOpen] = useState(false);
+import React, {
+    useEffect,
+    useLayoutEffect,
+    useRef,
+    useState,
+  } from "react";
+  import { Link, useLocation } from "react-router-dom";
+  import "./Navbar.css";
+  
+  function Navbar() {
     const location = useLocation();
-
-    const handleScroll = () => {
-        const offset = window.scrollY;
-        setScrolled(offset > 0);
-    };
-
-    const toggleMenu = () => {
-        setMenuOpen((prev) => !prev);
-    };
-
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [nameLeft, setNameLeft] = useState(null);
+  
+    const nameRef = useRef(null);
+    const navRef = useRef(null);
+  
+    /* ---------- Trạng thái hero/collapsed ---------- */
+    const isHome = location.pathname === "/";
+    const isHero = isHome && !isScrolled;
+  
+    /* ---------- Theo dõi cuộn ---------- */
     useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
+      const onScroll = () => setIsScrolled(window.scrollY > 0);
+      window.addEventListener("scroll", onScroll, { passive: true });
+      return () => window.removeEventListener("scroll", onScroll);
     }, []);
+  
+    /* ---------- Hàm căn “HUY DO” cách Navbar 20 px ---------- */
+    const recalcNamePos = () => {
+      if (!isHero || !nameRef.current || !navRef.current) return;
+      const navRect = navRef.current.getBoundingClientRect();
+      const nameW = nameRef.current.offsetWidth;
+      setNameLeft(navRect.left - 20 - nameW); // 20 px khoảng cách
+    };
+  
+    /* ---------- Gọi khi vào hero ---------- */
+    useLayoutEffect(() => {
+      recalcNamePos();
+  
+      if (!isHero) return;
+  
+      // Nghe sự kiện transitionend & resize
+      const handleResize = () => recalcNamePos();
+      const handleTransitionEnd = (e) => {
+        if (e.propertyName.includes("transform")) recalcNamePos();
+      };
+  
+      window.addEventListener("resize", handleResize);
+      const navNode = navRef.current;
+      if (navNode) {
+        navNode.addEventListener("transitionend", handleTransitionEnd);
+      }
 
-    const currentPath = location.pathname;
-
+      return () => {
+        window.removeEventListener("resize", handleResize);
+        if (navNode) {
+          navNode.removeEventListener("transitionend", handleTransitionEnd);
+        }
+      };
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isHero]);
+  
     return (
-        <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
-            <div className="navbar-logo-container">
-                <Link to="/">HUY DO</Link>
-            </div>
+      <>
+        {/* ---- PILL TÊN ---- */}
+        <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+        <div
+          ref={nameRef}
+          className={`name-pill glass ${isHero ? "hero" : "collapsed"}`}
+          style={
+            isHero
+              ? { left: `${nameLeft}px`, top: "50%", transform: "translateY(-50%)" }
+              : {}
+          }
+        >
+          HUY&nbsp;DO
+        </div>
+        </Link>
 
-            <div className="menu-icon" onClick={toggleMenu}>
-                {menuOpen ? "✖" : "☰"}
-            </div>
-
-            <div className={`navbar-links-container ${menuOpen ? "open" : ""}`}>
-                <ul className="navbar-links">
-                    <li>
-                        <Link to="/" className={currentPath === '/' ? 'active' : ''}>Home</Link>
-                    </li>
-                    <li>
-                        <Link to="/projects" className={currentPath === '/projects' ? 'active' : ''}>Projects</Link>
-                    </li>
-                    {/* <li>
-                        <Link to="/minigame" className={currentPath === '/minigame' ? 'active' : ''}>Minigame</Link>
-                    </li> */}
-                    <li>
-                        <Link to="/contact" className={currentPath === '/contact' ? 'active' : ''}>Contact</Link>
-                    </li>
-                </ul>
-            </div>
+        {/* ---- NAVBAR PILL ---- */}
+        <nav
+          ref={navRef}
+          className={`navbar glass ${isHero ? "hero" : "collapsed"}`}
+        >
+          <ul className="navbar-links">
+            {isHero ? (
+              <>
+                <li>
+                  <Link to="/projects">Projects</Link>
+                </li>
+                <li>
+                  <Link to="/albums">Album</Link>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <Link to="/projects">Projects</Link>
+                </li>
+                <li>
+                  <Link to="/albums">Albums</Link>
+                </li>
+                <li>
+                  <Link to="/contact">Contact</Link>
+                </li>
+              </>
+            )}
+          </ul>
         </nav>
+      </>
     );
-}
-
-export default Navbar;
+  }
+  
+  export default Navbar;
