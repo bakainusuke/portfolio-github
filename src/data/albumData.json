@@ -1,0 +1,9 @@
+[
+  {
+    "name": "Album 1",
+    "bgDesktop": "album-1-bg-desktop.jpg",
+    "bgMobile": "album-1-bg-mobile.jpg",
+    "photos": ["album-1-1.jpg"]
+  }
+
+]

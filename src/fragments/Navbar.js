@@ -4,7 +4,7 @@ import React, {
     useRef,
     useState,
   } from "react";
-  import { Link, useLocation } from "react-router-dom";
+  import { Link, NavLink, useLocation } from "react-router-dom";
   import "./Navbar.css";
   
   function Navbar() {
@@ -87,22 +87,32 @@ import React, {
             {isHero ? (
               <>
                 <li>
-                  <Link to="/projects">Projects</Link>
+                  <NavLink to="/projects" className={({ isActive }) => isActive ? "active" : ""}>
+                    Projects
+                  </NavLink>
                 </li>
                 <li>
-                  <Link to="/albums">Album</Link>
+                  <NavLink to="/albums" className={({ isActive }) => isActive ? "active" : ""}>
+                    Album
+                  </NavLink>
                 </li>
               </>
             ) : (
               <>
                 <li>
-                  <Link to="/projects">Projects</Link>
+                  <NavLink to="/projects" className={({ isActive }) => isActive ? "active" : ""}>
+                    Projects
+                  </NavLink>
                 </li>
                 <li>
-                  <Link to="/albums">Albums</Link>
+                  <NavLink to="/albums" className={({ isActive }) => isActive ? "active" : ""}>
+                    Albums
+                  </NavLink>
                 </li>
                 <li>
-                  <Link to="/contact">Contact</Link>
+                  <NavLink to="/contact" className={({ isActive }) => isActive ? "active" : ""}>
+                    Contact
+                  </NavLink>
                 </li>
               </>
             )}

@@ -10,11 +10,16 @@
 .name-pill {
     position: fixed;
     z-index: 999;
-    padding: 12px 24px;
+    padding: 14px 24px;
     font-weight: 600;
     white-space: nowrap;
     border-radius: 9999px;
     transition: all .6s cubic-bezier(.4, 0, .2, 1);
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
 }
 
 /* Hero = giữa, hơi lệch trái */
@@ -22,7 +27,9 @@
 .name-pill.hero {
     top: 50%;
     transform: translateY(-50%);
-    font-size: 1.3rem; }
+    font-size: 1.3rem;
+    height: 56px;
+}
 
 /* Collapsed = góc trái-trên */
 .name-pill.collapsed {
@@ -49,7 +56,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1.1);
-    padding: 24px 50px;
+    padding: 10px 50px;
     gap: 32px;
 }
 
@@ -66,7 +73,7 @@
 .navbar-links {
     display: flex;
     list-style: none;
-    gap: inherit;
+    gap: flex;
 }
 
 .navbar-links a {
@@ -74,7 +81,7 @@
     text-decoration: none;
     border-radius: 9999px;
     transition: background-color .3s;
-    padding: 8px 16px;
+    padding: 18px 18px;
     font-size: .875rem;
 }
 
@@ -110,3 +117,15 @@
     display: flex;
     justify-content: center; }
 /* Projects–Album spacing */
+/* Đồng bộ chiều cao giữa name-pill và navbar */
+.name-pill,
+.navbar {
+    height: 56px;
+    display: flex;
+    align-items: center;
+}
+
+/* Highlight active link */
+.navbar-links a.active {
+    font-weight: bold;
+}
